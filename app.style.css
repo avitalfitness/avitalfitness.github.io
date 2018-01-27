@@ -9910,13 +9910,13 @@ button.close {
 body {
   margin: 0;
   font-family: "Comfortaa-Light";
-  background-color: #e7e7e7;
+  background-color: #FFFFFF;
   direction: rtl; }
 
 body {
   margin: 0;
   font-family: "Open-Sans";
-  background-color: #e7e7e7;
+  background-color: #FFFFFF;
   direction: rtl; }
 
 .home-page {
@@ -10022,10 +10022,12 @@ body {
   -ms-flex-line-pack: start;
       align-content: flex-start; }
   .trainee .custom-row > div {
-    width: 50px; }
+    width: 35px; }
   .trainee .custom-row div:nth-child(1) {
     width: 100px; }
   .trainee .custom-row div:nth-child(2) {
+    width: 100px; }
+  .trainee .custom-row div:nth-child(3) {
     width: 100px; }
   .trainee > div:nth-child(3) {
     margin-right: 50px; }
@@ -10162,6 +10164,15 @@ body {
   .custom-row > div {
     padding: 5px 12px;
     width: 150px; }
+  .custom-row .fa:hover {
+    color: #fa7d6a;
+    cursor: pointer; }
+  .custom-row .fa-trash-o:hover {
+    color: red;
+    cursor: pointer; }
+  .custom-row .fa-save:hover {
+    color: #3878D9;
+    cursor: pointer; }
 
 .form-modal {
   position: fixed;
@@ -10232,15 +10243,12 @@ body {
     width: 200px; }
 
 .exercise-list .custom-row > div {
-  width: 50px; }
+  width: 35px; }
 
 .exercise-list .custom-row div:nth-child(1) {
-  width: 30px; }
-
-.exercise-list .custom-row div:nth-child(2) {
   width: 200px; }
 
-.exercise-list .custom-row div:nth-child(3) {
+.exercise-list .custom-row div:nth-child(2) {
   width: 200px; }
 
 .scheduled-exercise-list {
