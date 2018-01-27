@@ -9913,6 +9913,12 @@ body {
   background-color: #e7e7e7;
   direction: rtl; }
 
+body {
+  margin: 0;
+  font-family: "Open-Sans";
+  background-color: #e7e7e7;
+  direction: rtl; }
+
 .home-page {
   background: yellow; }
 
@@ -10077,7 +10083,7 @@ body {
     width: 100%; }
     .trainee-dashboard > div > div {
       margin-top: 0px;
-      padding: 50px 0;
+      padding: 70px 0px 80px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -10094,7 +10100,8 @@ body {
       margin-left: auto;
       padding-left: 15px;
       padding-right: 15px;
-      width: 1200px; }
+      width: 1200px;
+      border-top: 1px solid #35ABAB; }
       .trainee-dashboard > div > div .list-general-wrapper {
         width: 600px; }
   .trainee-dashboard > div:nth-child(1) {
@@ -10105,12 +10112,34 @@ body {
     background: #E1E1E1; }
   .trainee-dashboard > div:nth-child(5) {
     background: #FFFFFF; }
+  .trainee-dashboard > div {
+    background: #FFFFFF !important; }
   .trainee-dashboard .right-space {
     margin-right: 50px; }
   .trainee-dashboard .dashboard-picklist {
     width: 180px;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    border-radius: 6px; }
+    border-radius: 6px;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #35ABAB; }
+  .trainee-dashboard .dashboard-header {
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 17px;
+    color: #3e3e3e;
+    font-weight: 700;
+    letter-spacing: 3px;
+    background-color: #fff;
+    position: relative;
+    padding: 0px 40px;
+    top: 35px;
+    border: none; }
+    .trainee-dashboard .dashboard-header > div {
+      padding: 20px 60px;
+      border: 1px solid #35ABAB; }
 
 .custom-row {
   display: -webkit-box;
@@ -10169,17 +10198,16 @@ body {
 .training-package-list .custom-row > div:nth-child(1) {
   width: 200px; }
 
-.trainee-dashboard .personal-info {
-  padding: 50px 0; }
-  .trainee-dashboard .personal-info > div:nth-child(1) {
-    padding: 0px 0px 0px 20px; }
-  .trainee-dashboard .personal-info > div {
-    padding: 0px 30px 0 20px;
-    padding: 10px 20px; }
-    .trainee-dashboard .personal-info > div h2 {
-      margin-top: 0px;
-      font-size: 18px;
-      color: #35ABAB; }
+.trainee-dashboard .personal-info > div:nth-child(1) {
+  padding: 0px 0px 0px 20px; }
+
+.trainee-dashboard .personal-info > div {
+  padding: 0px 30px 0 20px;
+  padding: 10px 20px; }
+  .trainee-dashboard .personal-info > div h2 {
+    margin-top: 0px;
+    font-size: 18px;
+    color: #35ABAB; }
 
 .training-package {
   display: -webkit-box;
@@ -10641,11 +10669,25 @@ td.rdtYear:hover {
 
 .navbar {
   background: #E1E1E1;
-  margin-bottom: 0px; }
+  background: #FFFFFF;
+  margin-bottom: 0px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700; }
+
+.navbar-default .navbar-nav > li > a {
+  color: #58585a; }
+
+.navbar-default .navbar-nav > li:hover a, .navbar-default .navbar-nav .active a {
+  color: #fa7d6a; }
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #fa7d6a;
+  background-color: transparent; }
 
 .container-fluid {
   padding: 0px; }
   .container-fluid > div {
-    padding: 30px; }
+    padding: 25px 0; }
 
 /*# sourceMappingURL=app.style.css.map*/

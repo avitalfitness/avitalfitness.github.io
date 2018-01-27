@@ -80851,6 +80851,11 @@ var Header = function Header(_ref) {
 	    toggleMenu = _ref.toggleMenu,
 	    goTo = _ref.goTo;
 
+
+	function goToAndSet(tab) {
+		toggleMenu();
+		goTo(tab);
+	}
 	var tabs = [
 	// {route:'home',name:'ראשי'}, 
 	// {route:'traineeWorkout',name:'תכנית אימון'},
@@ -80879,8 +80884,8 @@ var Header = function Header(_ref) {
 				),
 				_react2.default.createElement(
 					'a',
-					{ className: 'navbar-brand' },
-					'Get Fit'
+					{ className: 'navbar-brand', onClick: toggleMenu },
+					'Avital Fitness'
 				)
 			),
 			_react2.default.createElement(
@@ -80892,12 +80897,12 @@ var Header = function Header(_ref) {
 					tabs.map(function (tab) {
 						return _react2.default.createElement(
 							'li',
-							{ key: tab.route, className: "" + (currentTab.route === tab.route ? 'active' : ''), onClick: function onClick() {
-									return goTo(tab.route);
-								} },
+							{ key: tab.route, className: "" + (currentTab === tab.route ? 'active' : '') },
 							_react2.default.createElement(
 								_reactRouterDom.Link,
-								{ to: '/' + tab.route },
+								{ to: '/' + tab.route, onClick: function onClick() {
+										return goToAndSet(tab.route);
+									} },
 								tab.name
 							)
 						);
@@ -81302,6 +81307,16 @@ var Signup = function Signup(_ref) {
 		_react2.default.createElement(
 			'div',
 			{ 'class': 'fade-in' },
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05DE\u05EA\u05D0\u05DE\u05DF'
+				)
+			),
 			_react2.default.createElement(
 				'div',
 				{ className: 'trainee' },
@@ -81923,16 +81938,46 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05DE\u05EA\u05D0\u05DE\u05DF'
+				)
+			),
 			_react2.default.createElement(_TraineePersonalInfoComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
 			{ className: 'fade-in' },
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05EA\u05DB\u05E0\u05D9\u05EA \u05E9\u05D1\u05D5\u05E2\u05D9\u05EA'
+				)
+			),
 			_react2.default.createElement(_ScheduledExerciseListComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05E9\u05D5\u05E0\u05D5\u05EA'
+				)
+			),
 			_react2.default.createElement(
 				'div',
 				null,
@@ -81943,11 +81988,31 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05EA\u05DB\u05E0\u05D9\u05EA \u05E9\u05D1\u05D5\u05E2\u05D9\u05EA'
+				)
+			),
 			_react2.default.createElement(_TraineeStatusListComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05EA\u05DB\u05E0\u05D9\u05EA \u05E9\u05D1\u05D5\u05E2\u05D9\u05EA'
+				)
+			),
 			_react2.default.createElement(_SessionNameListComponent2.default, null)
 		)
 	);
@@ -92782,7 +92847,7 @@ var TraineePersonalInfo = function TraineePersonalInfo(_ref) {
 
 	return _react2.default.createElement(
 		'div',
-		{ className: 'personal-info slide-from-top' },
+		{ className: 'personal-info' },
 		_react2.default.createElement(
 			'div',
 			null,
@@ -94066,23 +94131,6 @@ var PaymentList = function PaymentList(_ref) {
 												_react2.default.createElement(
 														'div',
 														null,
-														'\u05E1\u05DA \u05D4\u05DB\u05DC'
-												),
-												_react2.default.createElement('div', null),
-												_react2.default.createElement('div', null),
-												_react2.default.createElement(
-														'div',
-														null,
-														totalBill
-												),
-												_react2.default.createElement('div', null)
-										),
-										_react2.default.createElement(
-												'div',
-												{ className: 'custom-row' },
-												_react2.default.createElement(
-														'div',
-														null,
 														'\u05E9\u05D5\u05DC\u05DD'
 												),
 												_react2.default.createElement('div', null),
@@ -94100,7 +94148,24 @@ var PaymentList = function PaymentList(_ref) {
 												_react2.default.createElement(
 														'div',
 														null,
-														'\u05DC\u05EA\u05E9\u05DC\u05D5\u05DD'
+														'\u05E1\u05DA \u05D4\u05DB\u05DC \u05DC\u05EA\u05E9\u05DC\u05D5\u05DD'
+												),
+												_react2.default.createElement('div', null),
+												_react2.default.createElement('div', null),
+												_react2.default.createElement(
+														'div',
+														null,
+														totalBill
+												),
+												_react2.default.createElement('div', null)
+										),
+										_react2.default.createElement(
+												'div',
+												{ className: 'custom-row' },
+												_react2.default.createElement(
+														'div',
+														null,
+														'\u05E0\u05D5\u05EA\u05E8 \u05DC\u05E9\u05DC\u05DD'
 												),
 												_react2.default.createElement('div', null),
 												_react2.default.createElement('div', null),
@@ -94193,11 +94258,20 @@ var Workout = function Workout(_ref) {
 		'div',
 		{ className: 'workout trainee-dashboard' },
 		_react2.default.createElement(
-			'h2',
+			'div',
 			null,
-			'\u05EA\u05DB\u05E0\u05D9\u05EA \u05D0\u05D9\u05DE\u05D5\u05DF'
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05DE\u05EA\u05D0\u05DE\u05DF'
+				)
+			),
+			_react2.default.createElement(TrainingPackageComponent, null)
 		),
-		_react2.default.createElement(_TraineePersonalInfoComponent2.default, null),
 		_react2.default.createElement(
 			'div',
 			null,
@@ -104999,16 +105073,46 @@ var Workout = function Workout(_ref) {
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05D7\u05D1\u05D9\u05DC\u05D5\u05EA'
+				)
+			),
 			_react2.default.createElement(_TrainingPackageComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05EA\u05E8\u05D2\u05D9\u05DC\u05D9\u05DD'
+				)
+			),
 			_react2.default.createElement(_ExerciseComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05DE\u05E7\u05D5\u05DE\u05D5\u05EA'
+				)
+			),
 			_react2.default.createElement(_LocationListComponent2.default, null)
 		)
 	);
@@ -105504,16 +105608,46 @@ var PaymentDashboard = function PaymentDashboard(_ref) {
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05DE\u05EA\u05D0\u05DE\u05DF'
+				)
+			),
 			_react2.default.createElement(_TraineePersonalInfoComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05EA\u05E9\u05DC\u05D5\u05DE\u05D9\u05DD'
+				)
+			),
 			_react2.default.createElement(_PaymentComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
 			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'dashboard-header' },
+				' ',
+				_react2.default.createElement(
+					'div',
+					null,
+					'\u05D7\u05D1\u05D9\u05DC\u05D5\u05EA'
+				)
+			),
 			_react2.default.createElement(_TraineeTrainingPackageListComponent2.default, null)
 		)
 	);
