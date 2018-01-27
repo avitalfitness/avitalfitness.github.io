@@ -81170,7 +81170,7 @@ var Login = function Login(_ref) {
 				_react2.default.createElement(
 					'div',
 					{ className: 'button-holder' },
-					_react2.default.createElement(_TextInput2.default, passwordInput),
+					_react2.default.createElement('input', { className: 'form-control' }),
 					_react2.default.createElement('button', { className: 'fa fa-arrow-circle-o-right login-button' })
 				)
 			)
@@ -81623,35 +81623,31 @@ var Signup = function Signup(_ref) {
 	formFields['sessionsInput'] = { fieldClass: 'form-control', field: 'sessions', name: 'sessions', placeholder: 'sessions', value: form.sessions, onUpdate: onInputFieldChange };
 	return _react2.default.createElement(
 		'div',
-		{ className: 'trainee-dashboard' },
+		{ className: 'training-package' },
+		_react2.default.createElement(_TrainingPackageListComponent2.default, { trainingPackageList: trainingPackageList }),
 		_react2.default.createElement(
-			'div',
-			{ className: 'training-package' },
-			_react2.default.createElement(_TrainingPackageListComponent2.default, { trainingPackageList: trainingPackageList }),
+			'form',
+			{ onSubmit: addTrainingPackage },
 			_react2.default.createElement(
-				'form',
-				{ onSubmit: addTrainingPackage },
-				_react2.default.createElement(
-					'h3',
-					null,
-					'\u05D4\u05D5\u05E1\u05E4\u05EA \u05D7\u05D1\u05D9\u05DC\u05D4'
-				),
+				'h3',
+				null,
+				'\u05D4\u05D5\u05E1\u05E4\u05EA \u05D7\u05D1\u05D9\u05DC\u05D4'
+			),
+			_react2.default.createElement(
+				'div',
+				{ className: 'form' },
+				Object.keys(formFields).map(function (fieldKey) {
+					return _react2.default.createElement(
+						'div',
+						{ key: fieldKey },
+						_react2.default.createElement(_TextInput2.default, formFields[fieldKey])
+					);
+				}),
 				_react2.default.createElement(
 					'div',
-					{ className: 'form' },
-					Object.keys(formFields).map(function (fieldKey) {
-						return _react2.default.createElement(
-							'div',
-							{ key: fieldKey },
-							_react2.default.createElement(_TextInput2.default, formFields[fieldKey])
-						);
-					}),
-					_react2.default.createElement(
-						'div',
-						{ className: 'button-holder' },
-						_react2.default.createElement('input', { className: 'form-control' }),
-						_react2.default.createElement('button', { className: 'fa fa-arrow-circle-o-right login-button' })
-					)
+					{ className: 'button-holder' },
+					_react2.default.createElement('input', { className: 'form-control' }),
+					_react2.default.createElement('button', { className: 'fa fa-arrow-circle-o-right login-button' })
 				)
 			)
 		)
@@ -93588,35 +93584,31 @@ var Signup = function Signup(_ref) {
 	formFields['linkInput'] = { fieldClass: '', field: 'link', name: 'link', placeholder: 'link', value: form.link, onUpdate: onInputFieldChange };
 	return _react2.default.createElement(
 		'div',
-		{ className: 'trainee-dashboard' },
+		{ className: 'training-package' },
+		_react2.default.createElement(_ExerciseListComponent2.default, null),
 		_react2.default.createElement(
-			'div',
-			{ className: 'training-package' },
-			_react2.default.createElement(_ExerciseListComponent2.default, null),
+			'form',
+			{ onSubmit: addExercise },
 			_react2.default.createElement(
-				'form',
-				{ onSubmit: addExercise },
-				_react2.default.createElement(
-					'h3',
-					null,
-					'\u05D4\u05D5\u05E1\u05E4\u05EA \u05EA\u05E8\u05D2\u05D9\u05DC'
-				),
+				'h3',
+				null,
+				'\u05D4\u05D5\u05E1\u05E4\u05EA \u05EA\u05E8\u05D2\u05D9\u05DC'
+			),
+			_react2.default.createElement(
+				'div',
+				{ className: 'form' },
+				Object.keys(formFields).map(function (fieldKey) {
+					return _react2.default.createElement(
+						'div',
+						{ key: fieldKey },
+						_react2.default.createElement(_TextInput2.default, formFields[fieldKey])
+					);
+				}),
 				_react2.default.createElement(
 					'div',
-					{ className: 'form' },
-					Object.keys(formFields).map(function (fieldKey) {
-						return _react2.default.createElement(
-							'div',
-							{ key: fieldKey },
-							_react2.default.createElement(_TextInput2.default, formFields[fieldKey])
-						);
-					}),
-					_react2.default.createElement(
-						'div',
-						{ className: 'button-holder' },
-						_react2.default.createElement('input', { className: 'form-control' }),
-						_react2.default.createElement('button', { className: 'fa fa-arrow-circle-o-right login-button' })
-					)
+					{ className: 'button-holder' },
+					_react2.default.createElement('input', { className: 'form-control' }),
+					_react2.default.createElement('button', { className: 'fa fa-arrow-circle-o-right login-button' })
 				)
 			)
 		)
@@ -93719,21 +93711,21 @@ var Signup = function Signup(_ref) {
 					_react2.default.createElement(
 						'div',
 						null,
+						_react2.default.createElement(
+							'a',
+							{ target: '_blanc', href: exercise.link },
+							_react2.default.createElement('i', { className: 'fa fa-film' })
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						null,
 						exercise.name
 					),
 					_react2.default.createElement(
 						'div',
 						null,
 						exercise.text
-					),
-					_react2.default.createElement(
-						'div',
-						null,
-						_react2.default.createElement(
-							'a',
-							{ target: '_blanc', href: exercise.link },
-							'\u05E1\u05E8\u05D8\u05D5\u05DF'
-						)
 					),
 					_react2.default.createElement(
 						'div',
@@ -105004,9 +104996,21 @@ var Workout = function Workout(_ref) {
 	return _react2.default.createElement(
 		'div',
 		{ className: 'trainee-dashboard' },
-		_react2.default.createElement(_TrainingPackageComponent2.default, null),
-		_react2.default.createElement(_ExerciseComponent2.default, null),
-		_react2.default.createElement(_LocationListComponent2.default, null)
+		_react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_TrainingPackageComponent2.default, null)
+		),
+		_react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_ExerciseComponent2.default, null)
+		),
+		_react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(_LocationListComponent2.default, null)
+		)
 	);
 };
 exports.default = Workout;
@@ -105137,46 +105141,42 @@ var LocationList = function LocationList(_ref) {
 
 	return _react2.default.createElement(
 		'div',
-		{ className: 'trainee-dashboard location-list list-general-wrapper' },
+		{ className: 'location-list list-general-wrapper' },
 		_react2.default.createElement(
 			'div',
 			null,
-			_react2.default.createElement(_LocationComponent2.default, null),
 			_react2.default.createElement(
-				'div',
+				'h3',
 				null,
-				_react2.default.createElement(
-					'h3',
-					null,
-					'\u05DE\u05E7\u05D5\u05DE\u05D5\u05EA'
-				),
-				locationList.map(function (location) {
-					return _react2.default.createElement(
+				'\u05DE\u05E7\u05D5\u05DE\u05D5\u05EA'
+			),
+			locationList.map(function (location) {
+				return _react2.default.createElement(
+					'div',
+					{ key: location._id, className: 'custom-row' },
+					_react2.default.createElement(
 						'div',
-						{ key: location._id, className: 'custom-row' },
-						_react2.default.createElement(
-							'div',
-							null,
-							location.name
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'fa-button' },
-							_react2.default.createElement('i', { className: 'fa fa-trash-o', onClick: function onClick() {
-									return removeLocation(location._id);
-								} })
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'fa-button' },
-							_react2.default.createElement('i', { className: 'fa fa-pencil', onClick: function onClick() {
-									return editLocation(location._id);
-								} })
-						)
-					);
-				})
-			)
-		)
+						null,
+						location.name
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'fa-button' },
+						_react2.default.createElement('i', { className: 'fa fa-trash-o', onClick: function onClick() {
+								return removeLocation(location._id);
+							} })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'fa-button' },
+						_react2.default.createElement('i', { className: 'fa fa-pencil', onClick: function onClick() {
+								return editLocation(location._id);
+							} })
+					)
+				);
+			})
+		),
+		_react2.default.createElement(_LocationComponent2.default, null)
 	);
 };
 exports.default = LocationList;
@@ -105321,27 +105321,28 @@ var Locaction = function Locaction(_ref) {
 	var formFields = {};
 	formFields['textInput'] = { fieldClass: 'form-control', field: 'name', name: 'name', placeholder: 'מיקום', value: form.name, onUpdate: onInputFieldChange };
 	return _react2.default.createElement(
-		'div',
-		null,
+		'form',
+		{ onSubmit: addLocation },
 		_react2.default.createElement(
-			'form',
-			{ onSubmit: addLocation },
+			'h3',
+			null,
+			'\u05D4\u05D5\u05E1\u05E4\u05EA \u05DE\u05E7\u05D5\u05DD'
+		),
+		_react2.default.createElement(
+			'div',
+			{ className: 'form' },
+			Object.keys(formFields).map(function (fieldKey) {
+				return _react2.default.createElement(
+					'div',
+					{ key: fieldKey },
+					_react2.default.createElement(_TextInput2.default, formFields[fieldKey])
+				);
+			}),
 			_react2.default.createElement(
 				'div',
-				{ className: 'form' },
-				Object.keys(formFields).map(function (fieldKey) {
-					return _react2.default.createElement(
-						'div',
-						{ key: fieldKey },
-						_react2.default.createElement(_TextInput2.default, formFields[fieldKey])
-					);
-				}),
-				_react2.default.createElement(
-					'div',
-					{ className: 'button-holder' },
-					_react2.default.createElement('input', { className: 'form-control' }),
-					_react2.default.createElement('button', { className: 'fa fa-arrow-circle-o-right login-button' })
-				)
+				{ className: 'button-holder' },
+				_react2.default.createElement('input', { className: 'form-control' }),
+				_react2.default.createElement('button', { className: 'fa fa-arrow-circle-o-right login-button' })
 			)
 		)
 	);

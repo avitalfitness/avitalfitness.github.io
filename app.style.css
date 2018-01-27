@@ -10087,9 +10087,9 @@ body {
               flex-direction: row;
       -ms-flex-wrap: nowrap;
           flex-wrap: nowrap;
-      -webkit-box-pack: start;
-          -ms-flex-pack: start;
-              justify-content: start;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
       margin-right: auto;
       margin-left: auto;
       padding-left: 15px;
@@ -10207,7 +10207,13 @@ body {
   width: 50px; }
 
 .exercise-list .custom-row div:nth-child(1) {
-  width: 100px; }
+  width: 30px; }
+
+.exercise-list .custom-row div:nth-child(2) {
+  width: 200px; }
+
+.exercise-list .custom-row div:nth-child(3) {
+  width: 200px; }
 
 .scheduled-exercise-list {
   color: #35ABAB; }
