@@ -85708,7 +85708,7 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 						_react2.default.createElement(
 							'div',
 							null,
-							'\u05E6\u05D9\u05D0\u05D5\u05E8'
+							'\u05EA\u05D9\u05D0\u05D5\u05E8'
 						),
 						_react2.default.createElement(
 							'div',
@@ -94441,72 +94441,33 @@ var Schedule = function Schedule(_ref) {
 	}
 	return _react2.default.createElement(
 		'div',
-		{ className: '' },
+		{ className: 'trainee-dashboard' },
 		_react2.default.createElement(
 			'div',
-			{ className: 'trainee-dashboard' },
+			null,
 			_react2.default.createElement(
 				'div',
-				null,
+				{ className: 'dashboard-header' },
+				' ',
 				_react2.default.createElement(
 					'div',
-					{ className: 'dashboard-header' },
-					' ',
-					_react2.default.createElement(
-						'div',
-						null,
-						'\u05DE\u05EA\u05D0\u05DE\u05DF'
-					)
-				),
-				_react2.default.createElement(_TraineePersonalInfoComponent2.default, null)
-			)
+					null,
+					'\u05DE\u05EA\u05D0\u05DE\u05DF'
+				)
+			),
+			_react2.default.createElement(_TraineePersonalInfoComponent2.default, null)
 		),
 		_react2.default.createElement(
 			'div',
-			{ className: 'trainee-dashboard' },
+			null,
 			_react2.default.createElement(
 				'div',
-				null,
+				{ className: 'dashboard-header' },
+				' ',
 				_react2.default.createElement(
 					'div',
-					{ className: 'dashboard-header' },
-					' ',
-					_react2.default.createElement(
-						'div',
-						null,
-						'\u05D9\u05D5\u05DE\u05DF'
-					)
-				)
-			),
-			_react2.default.createElement(
-				'div',
-				null,
-				sessionType == 'homeSession' && _react2.default.createElement(
-					'div',
-					{ className: 'personal-info slide-from-top' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'dashboard-picklist' },
-						_react2.default.createElement(_InputWrapper2.default, sessionNameInput)
-					)
-				),
-				_react2.default.createElement(
-					'div',
-					{ className: 'schedule-switch' },
-					_react2.default.createElement(
-						'div',
-						{ onClick: function onClick() {
-								return setSessionType('session');
-							}, className: sessionType == 'session' ? "active" : "" },
-						'Sessions'
-					),
-					_react2.default.createElement(
-						'div',
-						{ onClick: function onClick() {
-								return setSessionType('homeSession');
-							}, className: sessionType == 'homeSession' ? "active" : "" },
-						'Home Sessions'
-					)
+					null,
+					'\u05D9\u05D5\u05DE\u05DF'
 				)
 			)
 		),
@@ -94514,17 +94475,43 @@ var Schedule = function Schedule(_ref) {
 		modalOpen && sessionType == 'homeSession' && _react2.default.createElement(_HomeSessionComponent2.default, { toggleModal: toggleModal, isView: false, className: 'trainee-dashboard' }),
 		_react2.default.createElement(
 			'div',
-			{ className: 'container' },
-			_react2.default.createElement(_reactBigCalendar2.default, {
-				min: new Date(2018, 1, 1, 6, 0, 0),
-				max: new Date(2018, 1, 1, 23, 0, 0),
-				events: sessions,
-				timeslots: 1,
-				step: 60,
-				onSelectEvent: onSelectEvent,
-				onSelectSlot: selectSlot,
-				selectable: true
-			})
+			null,
+			_react2.default.createElement(
+				'div',
+				{ className: 'column-view' },
+				_react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'schedule-switch' },
+						_react2.default.createElement(
+							'div',
+							{ onClick: function onClick() {
+									return setSessionType('session');
+								}, className: sessionType == 'session' ? "active" : "" },
+							'Sessions'
+						),
+						_react2.default.createElement(
+							'div',
+							{ onClick: function onClick() {
+									return setSessionType('homeSession');
+								}, className: sessionType == 'homeSession' ? "active" : "" },
+							'Home Sessions'
+						)
+					)
+				),
+				_react2.default.createElement(_reactBigCalendar2.default, {
+					min: new Date(2018, 1, 1, 6, 0, 0),
+					max: new Date(2018, 1, 1, 23, 0, 0),
+					events: sessions,
+					timeslots: 1,
+					step: 60,
+					onSelectEvent: onSelectEvent,
+					onSelectSlot: selectSlot,
+					selectable: true
+				})
+			)
 		)
 	);
 };
