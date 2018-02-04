@@ -6147,11 +6147,18 @@ function addTrainee() {
 
 function addTraineeTrainingPackage() {
     return function (dispatch, getState) {
+        var trainingPackage = _ramda2.default.find(_ramda2.default.propEq('_id', getState().trainingPackage.form.trainingPackageId))(getState().trainingPackage.trainingPackageList);
+        if (!trainingPackage) {
+            return;
+        }
         var form = {
             trainee: getState().trainee.form.traineeId,
-            trainingPackage: getState().trainingPackage.form.trainingPackageId,
+            amount: trainingPackage.amount,
+            name: trainingPackage.name,
+            sessions: trainingPackage.sessions,
             date: Date(),
-            quantity: getState().trainingPackage.form.quantity
+            quantity: getState().trainingPackage.form.quantity,
+            percent: getState().trainingPackage.form.percent
         };
         return http.post('https://get-fit-server.herokuapp.com/api/addTraineeTrainingPackage', form).then(function (response) {
             dispatch(getTraineePackageList());
@@ -81037,8 +81044,9 @@ var TraineePersonalInfo = function TraineePersonalInfo(_ref) {
 			_react2.default.createElement(
 				'div',
 				null,
-				currentTrainee.firstName && currentTrainee.firstName.substring(0, 1),
-				currentTrainee.lastName && currentTrainee.lastName.substring(0, 1)
+				currentTrainee.firstName,
+				' ',
+				currentTrainee.lastName
 			)
 		),
 		_react2.default.createElement(
@@ -83950,11 +83958,6 @@ var Login = function Login(_ref) {
 			'form',
 			{ onSubmit: login },
 			_react2.default.createElement(
-				'h3',
-				null,
-				'Login & Get Fit!'
-			),
-			_react2.default.createElement(
 				'div',
 				{ className: 'form' },
 				_react2.default.createElement(
@@ -85031,7 +85034,7 @@ var ScheduledExerciseList = function ScheduledExerciseList(_ref) {
 				weekDays.map(function (fieldKey) {
 					return _react2.default.createElement(
 						'div',
-						null,
+						{ key: fieldKey.value },
 						_react2.default.createElement(
 							'label',
 							{ key: fieldKey.value, className: "" + (fieldKey.value == currentDay ? ' active' : ''),
@@ -85234,11 +85237,6 @@ var HomeSession = function HomeSession(_ref) {
 			form._id && _react2.default.createElement('i', { className: 'fa fa-trash-o i-button', 'aria-hidden': 'true', onClick: function onClick() {
 					return remove(form._id);
 				} }),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'Login & Get Fit!'
-			),
 			_react2.default.createElement(
 				'div',
 				{ className: 'form slide-from-right' },
@@ -85646,11 +85644,6 @@ var Signup = function Signup(_ref) {
 			_react2.default.createElement('i', { className: 'fa fa-times-circle-o i-button', 'aria-hidden': 'true', onClick: function onClick() {
 					return toggleModal();
 				} }),
-			_react2.default.createElement(
-				'h3',
-				null,
-				'Login & Get Fit!'
-			),
 			_react2.default.createElement(
 				'div',
 				{ className: 'form slide-from-right' },
@@ -86194,11 +86187,6 @@ var Signup = function Signup(_ref) {
 				_react2.default.createElement('i', { className: 'fa fa-times-circle-o i-button', 'aria-hidden': 'true', onClick: function onClick() {
 						return toggleModal();
 					} }),
-				_react2.default.createElement(
-					'h3',
-					null,
-					'Login & Get Fit!'
-				),
 				_react2.default.createElement(
 					'div',
 					{ className: 'form slide-from-right' },
@@ -93281,11 +93269,6 @@ var Diet = function Diet(_ref) {
 					return toggleModal();
 				} }),
 			_react2.default.createElement(
-				'h3',
-				null,
-				'Login & Get Fit!'
-			),
-			_react2.default.createElement(
 				'div',
 				{ className: 'form' },
 				Object.keys(formFields).map(function (fieldKey) {
@@ -93694,11 +93677,6 @@ var Signup = function Signup(_ref) {
 					return toggleModal();
 				} }),
 			_react2.default.createElement(
-				'h3',
-				null,
-				'Login & Get Fit!'
-			),
-			_react2.default.createElement(
 				'div',
 				{ className: 'form slide-from-right' },
 				Object.keys(formFields).map(function (fieldKey) {
@@ -94082,7 +94060,7 @@ function mapStateToProps(state) {
     var packages = state.trainee.traineePackageMap[traineeId];
     if (packages) {
         totalBill = packages.reduce(function (total, current) {
-            return total + current.quantity * current.trainingPackage.amount;
+            return total + current.quantity * current.amount;
         }, 0);
     }
     var paymentList = state.payment.paymentMap[traineeId] ? state.payment.paymentMap[traineeId] : [];
@@ -105060,11 +105038,6 @@ var Session = function Session(_ref) {
 					return removeSession(form._id);
 				} }),
 			_react2.default.createElement(
-				'h3',
-				null,
-				'Login & Get Fit!'
-			),
-			_react2.default.createElement(
 				'div',
 				{ className: 'form slide-from-right' },
 				_react2.default.createElement(_InputWrapper2.default, formFields['textInput']),
@@ -106196,6 +106169,7 @@ function mapStateToProps(state) {
     currentPackcage = currentPackcage ? currentPackcage : {};
     return {
         quantity: state.trainingPackage.form.quantity,
+        percent: state.trainingPackage.form.percent,
         traineePackageList: traineePackageList,
         traineeId: state.trainee.form.traineeId,
         trainingPackageList: trainingPackageOptions,
@@ -106263,6 +106237,7 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 
 	var traineePackageList = _ref.traineePackageList,
 	    quantity = _ref.quantity,
+	    percent = _ref.percent,
 	    trainingPackageId = _ref.trainingPackageId,
 	    trainingPackageList = _ref.trainingPackageList,
 	    currentPackcage = _ref.currentPackcage,
@@ -106273,6 +106248,7 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 
 	var formFields = {};
 	formFields['quantityInput'] = { fieldClass: 'form-control quantity', type: 'input', field: 'quantity', name: 'quantity', placeholder: 'quantity', value: quantity, onUpdate: onInputFieldChange };
+	formFields['percentInput'] = { fieldClass: 'form-control percent', type: 'input', field: 'percent', name: 'percent', placeholder: 'percent', value: percent, onUpdate: onInputFieldChange };
 	formFields['trainingPackageInput'] = (_formFields$trainingP = { onSelect: setCurrentTrainingPackage, type: 'picklist', fieldClass: '', field: 'trainingPackage', placeholder: 'Training Package', value: trainingPackageId }, _defineProperty(_formFields$trainingP, 'type', 'picklist'), _defineProperty(_formFields$trainingP, 'options', trainingPackageList ? trainingPackageList : []), _formFields$trainingP);
 	return _react2.default.createElement(
 		'div',
@@ -106306,6 +106282,11 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 				_react2.default.createElement(
 					'div',
 					null,
+					'\u05D0\u05D7\u05D5\u05D6'
+				),
+				_react2.default.createElement(
+					'div',
+					null,
 					'\u05D0\u05D9\u05DE\u05D5\u05E0\u05D9\u05DD'
 				),
 				_react2.default.createElement('div', null)
@@ -106317,7 +106298,7 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 					_react2.default.createElement(
 						'div',
 						null,
-						trainingPackage.trainingPackage.name
+						trainingPackage.name
 					),
 					_react2.default.createElement(
 						'div',
@@ -106327,12 +106308,17 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 					_react2.default.createElement(
 						'div',
 						null,
-						trainingPackage.trainingPackage.amount
+						trainingPackage.amount
 					),
 					_react2.default.createElement(
 						'div',
 						null,
-						trainingPackage.trainingPackage.sessions
+						trainingPackage.percent
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						trainingPackage.sessions
 					),
 					_react2.default.createElement(
 						'div',
