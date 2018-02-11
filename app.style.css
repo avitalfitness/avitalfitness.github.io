@@ -10187,7 +10187,11 @@ body {
         width: 600px; }
       @media only screen and (max-width: 1199px) {
         .trainee-dashboard > div > div {
-          width: 100%; } }
+          width: 100%;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column; } }
   .trainee-dashboard > div {
     background: #FFFFFF; }
   .trainee-dashboard .right-space {
@@ -10289,6 +10293,9 @@ body {
   background: #ffffff;
   border: 1px solid transparent;
   z-index: 8; }
+  @media only screen and (max-width: 1199px) {
+    .personal-info {
+      padding-right: 25px; } }
   .personal-info > div {
     padding: 0px 30px 0 20px;
     padding: 10px 20px; }
@@ -10333,6 +10340,9 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
+
+.navbar-collapse {
+  margin: 0; }
 
 .training-package {
   display: -webkit-box;
@@ -10399,6 +10409,12 @@ body {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start; }
+    @media only screen and (max-width: 1199px) {
+      .scheduled-exercise-list .session-program {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column; } }
   .scheduled-exercise-list .custom-row > div {
     width: 20px; }
   .scheduled-exercise-list .custom-row div:nth-child(2) {
@@ -10440,8 +10456,15 @@ body {
             align-items: center;
     -ms-flex-line-pack: center;
         align-content: center;
+    margin: 1px;
     -webkit-box-shadow: 0px 0px 3px 0px #35ABAB;
             box-shadow: 0px 0px 3px 0px #35ABAB; }
+    @media only screen and (max-width: 1199px) {
+      .scheduled-exercise-list .weekdays-wrapper {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        margin-bottom: 1px; } }
     .scheduled-exercise-list .weekdays-wrapper span {
       color: #306A6A; }
     .scheduled-exercise-list .weekdays-wrapper .weekday-session {
@@ -10823,7 +10846,14 @@ td.rdtYear:hover {
 
 .container-fluid {
   padding: 0px; }
+  @media only screen and (max-width: 1199px) {
+    .container-fluid {
+      padding: 0px 15px; } }
   .container-fluid > div {
     padding: 25px 0; }
+    @media only screen and (max-width: 1199px) {
+      .container-fluid > div {
+        padding: 0px;
+        border-bottom: 1px solid #e7e7e7; } }
 
 /*# sourceMappingURL=app.style.css.map*/
