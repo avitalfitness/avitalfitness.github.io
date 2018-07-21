@@ -10290,7 +10290,9 @@ body {
     left: 0;
     width: 100%; }
     .form-modal form .form {
-      width: 100%; } }
+      width: 100%; }
+  .trainee-dashboard > div > div {
+    padding: 45px 10px 0px; } }
 
 .training-package-list .custom-row > div {
   width: 70px; }
@@ -10514,6 +10516,9 @@ body {
       border-radius: 0; }
 
 @media only screen and (max-width: 1199px) {
+  .scheduled-exercise-list .program-header {
+    margin-top: 20px;
+    margin-bottom: 0px; }
   .scheduled-exercise-list .weekdays-wrapper {
     -webkit-box-shadow: none;
             box-shadow: none; }
