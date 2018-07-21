@@ -86226,100 +86226,96 @@ var ScheduledExerciseList = function ScheduledExerciseList(_ref) {
 				{ className: 'session-program' },
 				_react2.default.createElement(
 					'div',
-					null,
+					{ className: 'program-header' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'program-header' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'dashboard-picklist' },
-							_react2.default.createElement(_InputWrapper2.default, sessionNameInput)
-						),
-						isAdmin && _react2.default.createElement('i', { className: 'fa fa-plus-square-o  i-button', 'aria-hidden': 'true', onClick: function onClick() {
-								return toggleModal();
-							} })
+						{ className: 'dashboard-picklist' },
+						_react2.default.createElement(_InputWrapper2.default, sessionNameInput)
 					),
-					scheduledExerciseList.length > 0 && _react2.default.createElement(
-						'div',
-						{ className: 'custom-row' },
-						_react2.default.createElement(
-							'div',
-							null,
-							'#'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05EA\u05E8\u05D2\u05D9\u05DC'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05E1\u05D8\u05D9\u05DD'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05D7\u05D6\u05E8\u05D5\u05EA'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05E1\u05E8\u05D8\u05D5\u05DF'
-						),
-						_react2.default.createElement('div', null),
-						_react2.default.createElement('div', null)
-					),
-					scheduledExerciseList.map(function (scheduledExercise) {
-						return _react2.default.createElement(
-							'div',
-							{ key: scheduledExercise._id, className: 'custom-row' },
-							_react2.default.createElement(
-								'div',
-								null,
-								scheduledExercise.order
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								scheduledExercise.exercise && scheduledExercise.exercise.name
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								scheduledExercise.sets
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								scheduledExercise.reps
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement(
-									'a',
-									{ target: '_blanc', href: scheduledExercise.exercise && scheduledExercise.exercise.link },
-									_react2.default.createElement('i', { className: 'fa fa-film' })
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement('i', { className: 'fa fa-trash-o', onClick: function onClick() {
-										return removeScheduledExercise(scheduledExercise._id);
-									} })
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement('i', { className: 'fa fa-pencil', onClick: function onClick() {
-										return editScheduledExercise(scheduledExercise._id);
-									} })
-							)
-						);
-					})
+					isAdmin && _react2.default.createElement('i', { className: 'fa fa-plus-square-o  i-button', 'aria-hidden': 'true', onClick: function onClick() {
+							return toggleModal();
+						} })
 				),
+				scheduledExerciseList.length > 0 && _react2.default.createElement(
+					'div',
+					{ className: 'custom-row' },
+					_react2.default.createElement(
+						'div',
+						null,
+						'#'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05EA\u05E8\u05D2\u05D9\u05DC'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05E1\u05D8\u05D9\u05DD'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05D7\u05D6\u05E8\u05D5\u05EA'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05E1\u05E8\u05D8\u05D5\u05DF'
+					),
+					_react2.default.createElement('div', null),
+					_react2.default.createElement('div', null)
+				),
+				scheduledExerciseList.map(function (scheduledExercise) {
+					return _react2.default.createElement(
+						'div',
+						{ key: scheduledExercise._id, className: 'custom-row' },
+						_react2.default.createElement(
+							'div',
+							null,
+							scheduledExercise.order
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							scheduledExercise.exercise && scheduledExercise.exercise.name
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							scheduledExercise.sets
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							scheduledExercise.reps
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							_react2.default.createElement(
+								'a',
+								{ target: '_blanc', href: scheduledExercise.exercise && scheduledExercise.exercise.link },
+								_react2.default.createElement('i', { className: 'fa fa-film' })
+							)
+						),
+						isAdmin && _react2.default.createElement(
+							'div',
+							null,
+							_react2.default.createElement('i', { className: 'fa fa-trash-o', onClick: function onClick() {
+									return removeScheduledExercise(scheduledExercise._id);
+								} })
+						),
+						isAdmin && _react2.default.createElement(
+							'div',
+							null,
+							_react2.default.createElement('i', { className: 'fa fa-pencil', onClick: function onClick() {
+									return editScheduledExercise(scheduledExercise._id);
+								} })
+						)
+					);
+				}),
 				isAdmin && _react2.default.createElement(
 					'div',
 					{ className: 'program-header' },
@@ -90131,154 +90127,150 @@ var TraineeDashboard = function TraineeDashboard(_ref) {
 	return _react2.default.createElement(
 		'div',
 		{ className: 'trainee-status list-general-wrapper slide-from-right-hard' },
+		modalOpen && _react2.default.createElement(_TraineeStatusComponent2.default, { toggleModal: toggleModal }),
 		_react2.default.createElement(
 			'div',
 			null,
-			modalOpen && _react2.default.createElement(_TraineeStatusComponent2.default, { toggleModal: toggleModal }),
+			_react2.default.createElement(
+				'h3',
+				null,
+				isAdmin && _react2.default.createElement('i', { className: 'fa fa-plus-square-o  i-button', 'aria-hidden': 'true', onClick: function onClick() {
+						return toggleModal();
+					} }),
+				'\u05EA\u05DE\u05D5\u05E0\u05EA \u05DE\u05E6\u05D1'
+			),
 			_react2.default.createElement(
 				'div',
-				null,
-				_react2.default.createElement(
-					'h3',
-					null,
-					isAdmin && _react2.default.createElement('i', { className: 'fa fa-plus-square-o  i-button', 'aria-hidden': 'true', onClick: function onClick() {
-							return toggleModal();
-						} }),
-					'\u05EA\u05DE\u05D5\u05E0\u05EA \u05DE\u05E6\u05D1'
-				),
+				{ className: 'status-table' },
 				_react2.default.createElement(
 					'div',
-					null,
+					{ className: 'custom-row' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'custom-row' },
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05EA\u05D9\u05D0\u05D5\u05E8'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05DE\u05E9\u05E7\u05DC'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05D6\u05E8\u05D5\u05E2'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05D7\u05D6\u05D4'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05DE\u05D5\u05EA\u05DF'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05D9\u05E9\u05D1\u05DF'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05E8\u05D2\u05DC'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05D7\u05D5\u05DC\u05E6\u05D4'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05DE\u05DB\u05E0\u05E1\u05D9\u05D9\u05DD'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05DB\u05EA\u05E4\u05D9\u05D9\u05DD'
-						),
-						_react2.default.createElement(
-							'div',
-							null,
-							'\u05EA\u05D0\u05E8\u05D9\u05DA'
-						),
-						_react2.default.createElement('div', null)
+						null,
+						'\u05EA\u05D9\u05D0\u05D5\u05E8'
 					),
-					traineeStatusList.map(function (traineeStatus) {
-						checkbox['value'] = traineeStatus.achieved;
-						return _react2.default.createElement(
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05DE\u05E9\u05E7\u05DC'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05D6\u05E8\u05D5\u05E2'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05D7\u05D6\u05D4'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05DE\u05D5\u05EA\u05DF'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05D9\u05E9\u05D1\u05DF'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05E8\u05D2\u05DC'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05D7\u05D5\u05DC\u05E6\u05D4'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05DE\u05DB\u05E0\u05E1\u05D9\u05D9\u05DD'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05DB\u05EA\u05E4\u05D9\u05D9\u05DD'
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'\u05EA\u05D0\u05E8\u05D9\u05DA'
+					),
+					_react2.default.createElement('div', null)
+				),
+				traineeStatusList.map(function (traineeStatus) {
+					checkbox['value'] = traineeStatus.achieved;
+					return _react2.default.createElement(
+						'div',
+						{ key: traineeStatus._id, className: 'custom-row' },
+						_react2.default.createElement(
 							'div',
-							{ key: traineeStatus._id, className: 'custom-row' },
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.name
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.weight
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.armCirc
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.chestCirc
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.waistCirc
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.assCirc
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.legCirc
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.shirtSize
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.pantsSize
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								traineeStatus.shoulderCirc
-							),
-							_react2.default.createElement(
-								'div',
-								null,
-								(0, _moment2.default)(traineeStatus.date).format("DD/MM/YYYY")
-							),
-							isAdmin && _react2.default.createElement(
-								'div',
-								null,
-								_react2.default.createElement('i', { className: 'fa fa-trash-o', onClick: function onClick() {
-										return removeTraineeStatus(traineeStatus._id);
-									} })
-							)
-						);
-					})
-				)
+							null,
+							traineeStatus.name
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.weight
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.armCirc
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.chestCirc
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.waistCirc
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.assCirc
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.legCirc
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.shirtSize
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.pantsSize
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							traineeStatus.shoulderCirc
+						),
+						_react2.default.createElement(
+							'div',
+							null,
+							(0, _moment2.default)(traineeStatus.date).format("DD/MM/YYYY")
+						),
+						isAdmin && _react2.default.createElement(
+							'div',
+							null,
+							_react2.default.createElement('i', { className: 'fa fa-trash-o', onClick: function onClick() {
+									return removeTraineeStatus(traineeStatus._id);
+								} })
+						)
+					);
+				})
 			)
 		)
 	);
