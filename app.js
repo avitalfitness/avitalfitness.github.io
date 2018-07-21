@@ -47660,6 +47660,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -47717,8 +47719,8 @@ function mapStateToProps(state) {
         return { value: trainee._id, label: trainee.firstName };
     });
 
-    var weekDays = [{ value: 1, label: 'ראשון' }, { value: 2, label: "שני" }, { value: 3, label: "שלישי" }, { value: 4, label: "רביעי" }, { value: 5, label: "חמישי" }, { value: 6, label: "שישי" }, { value: 7, label: "שבת" }];
-    var weekDayNames = [{ value: 0, label: 'ראשון' }, { value: 1, label: "שני" }, { value: 2, label: "שלישי" }, { value: 3, label: "רביעי" }, { value: 4, label: "חמישי" }, { value: 5, label: "שישי" }, { value: 6, label: "שבת" }];
+    var weekDays = [{ value: 1, label: 'א' }, { value: 2, label: "ב" }, { value: 3, label: "ג" }, { value: 4, label: "ד" }, { value: 5, label: "ה" }, { value: 6, label: "ו" }, { value: 7, label: "ש" }];
+    var weekDayNames = [{ value: 0, label: 'א' }, { value: 1, label: "ב" }, { value: 2, label: "ג" }, { value: 3, label: "ד" }, { value: 4, label: "ה" }, { value: 5, label: "ו" }, { value: 6, label: "ש" }];
     var currentDate = (0, _moment2.default)(weekStart).add(state.scheduledExercise.scheduleWeek, 'weeks');
     var weekStart = currentDate.clone().startOf('week');
     var weekEnd = currentDate.clone().endOf('week');
@@ -47728,7 +47730,7 @@ function mapStateToProps(state) {
     if (homeSessions) {
         var _loop = function _loop() {
             var day = (0, _moment2.default)(weekStart).add(i, 'days').format();
-            var newDay = { name: weekDayNames[i].label + ' ' + (0, _moment2.default)(day).format('DD/MM'), value: i + 1, date: (0, _moment2.default)(day) };
+            var newDay = _defineProperty({ name: weekDayNames[i].label, date: (0, _moment2.default)(day).format('DD/MM'), value: i + 1 }, 'date', (0, _moment2.default)(day));
             homeSessions.forEach(function (homeSession) {
                 if ((0, _moment2.default)(day).isSame((0, _moment2.default)(homeSession.date), 'day')) {
                     newDay['homeSession'] = homeSession.sessionName.name;

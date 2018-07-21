@@ -10513,6 +10513,17 @@ body {
       border-bottom: 1px solid #e1e1e1;
       border-radius: 0; }
 
+@media only screen and (max-width: 1199px) {
+  .scheduled-exercise-list .weekdays-wrapper {
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+    .scheduled-exercise-list .weekdays-wrapper > div label {
+      border-radius: 50%;
+      padding: 16px 20px;
+      margin: 0px 1px; }
+    .scheduled-exercise-list .weekdays-wrapper > div > div {
+      display: none; } }
+
 .payment-list .custom-row > div {
   width: 150px; }
 
